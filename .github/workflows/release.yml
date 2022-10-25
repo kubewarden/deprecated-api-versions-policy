@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+    - main
+    - master
+    tags:
+    - 'v*'
+
+name: Release policy
+
+jobs:
+
+  test:
+    name: run tests and linters
+    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@v1
+
+  release:
+    needs: test
+    permissions:
+      # Required to create GH release
+      contents: write
+      # Required to push to ghcr.io
+      packages: write
+      # Required by cosign keyless signing
+      id-token: write
+
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v1
+    with:
+      input-wasm: deprecated_api_versions
+      oci-target: ghcr.io/kubewarden/policies/deprecated-api-versions
+    
+    secrets:
+      workflow-pat: ${{ secrets.WORKFLOW_PAT }}
+    
