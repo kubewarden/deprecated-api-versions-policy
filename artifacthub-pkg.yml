@@ -1,0 +1,27 @@
+---
+version: 0.1.0
+name: deprecated-api-versions
+displayName: Deprecated API Versions
+createdAt: '2022-10-26T16:39:10+02:00'
+description: Find Kubernetes resources and removed Kubernetes resources
+license: Apache-2.0
+homeURL: https://kubewarden.io
+containersImages:
+- name: policy
+  image: "ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.0"
+keywords:
+- compliance
+- deprecated API
+links:
+- name: policy
+  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.0/policy.wasm
+- name: source
+  url: https://github.com/kubewarden/deprecated-api-versions
+provider:
+  name: kubewarden
+recommendations:
+- url: https://artifacthub.io/packages/helm/kubewarden/kubewarden-controller
+annotations:
+  kubewarden/resources: "*"
+  kubewarden/mutation: false
+  kubewarden/contextAware: false

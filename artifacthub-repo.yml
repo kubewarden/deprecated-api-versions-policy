@@ -1,0 +1,5 @@
+---
+repositoryID: <THE REPOSITORY ID INSIDE OF ARTIFACTHUB> # obtained after publishing the policy for the 1st time
+owners:
+- name: Kubewarden developers
+  email: kubewarden@suse.de
