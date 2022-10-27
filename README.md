@@ -64,4 +64,4 @@ For example, the release `0.1.0+k8sv1.26.0` of this policy knows about all the d
 formulated up to Kubernetes release 1.26.0.
 
 The announcement of new deprecation rules for Kubernetes 1.27.0 would trigger
-the a release of this policy with the following version: `v0.1.1+k8sv1.27.0`.
+then a release of this policy with the following version: `v0.1.1+k8sv1.27.0`.
