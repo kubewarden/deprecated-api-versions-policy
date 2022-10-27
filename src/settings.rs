@@ -2,7 +2,7 @@ use lazy_static::lazy_static;
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
-use crate::helpers::semver_serde;
+use versions::serde_helpers::semver_serde;
 
 lazy_static! {
     static ref DEFAULT_KUBERNETES_VERSION: Version = Version::parse("0.0.1").unwrap();

@@ -1,4 +1,4 @@
-pub(crate) mod semver_serde {
+pub mod semver_serde {
     use semver::Version;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
@@ -22,7 +22,8 @@ pub(crate) mod semver_serde {
         Version::parse(&version_str).map_err(serde::de::Error::custom)
     }
 }
-pub(crate) mod option_semver_serde {
+
+pub mod option_semver_serde {
     use semver::Version;
     use serde::{self, Deserialize, Deserializer, Serializer};
 

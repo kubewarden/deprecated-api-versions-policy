@@ -7,10 +7,7 @@ use kubewarden::{protocol_version_guest, request::ValidationRequest, validate_se
 mod settings;
 use settings::Settings;
 
-mod version;
-use version::DEPRECATION_CHECKER;
-
-mod helpers;
+use versions::DEPRECATION_CHECKER;
 
 #[no_mangle]
 pub extern "C" fn wapc_init() {
