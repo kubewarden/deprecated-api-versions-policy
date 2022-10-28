@@ -9,6 +9,7 @@ edition = "2018"
 [workspace]
 members = [
   "crates/versions",
+  "crates/policy-metadata-helper",
   "crates/policy-version-helper",
 ]
 
