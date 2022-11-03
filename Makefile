@@ -20,7 +20,7 @@ e2e-tests: annotated-policy.wasm
 	bats e2e.bats
 
 .PHONY: test
-test: check-policy-version fmt lint
+test: check-policy-metadata check-policy-version fmt lint
 	cargo test --workspace
 
 .PHONY: expected-policy-version
@@ -31,9 +31,18 @@ expected-policy-version:
 check-policy-version:
 	cargo run --quiet --manifest-path crates/policy-version-helper/Cargo.toml -- --manifest-path Cargo.toml check
 
+.PHONY: expected-policy-metadata
+expected-policy-metadata:
+	cargo run --quiet --manifest-path crates/policy-metadata-helper/Cargo.toml -- --metadata-path metadata.yml build
+
+.PHONY: check-policy-metadata
+check-policy-metadata:
+	cargo run --quiet --manifest-path crates/policy-metadata-helper/Cargo.toml -- --metadata-path metadata.yml check
+
 .PHONY: clean
 clean:
 	cargo clean
 	cargo clean --manifest-path crates/policy-version-helper/Cargo.toml
+	cargo clean --manifest-path crates/policy-metadata-helper/Cargo.toml
 	cargo clean --manifest-path crates/versions/Cargo.toml
 	rm -f policy.wasm annotated-policy.wasm
