@@ -1,5 +1,5 @@
 ---
-version: "0.1.0+k8sv1.26.0"
+version: "0.1.0-k8sv1.26.0"
 name: deprecated-api-versions
 displayName: Deprecated API Versions
 createdAt: '2022-11-03T16:39:10+02:00'

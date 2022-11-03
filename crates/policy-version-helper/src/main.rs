@@ -48,10 +48,10 @@ pub fn main() {
     let current_policy_version = find_policy_version(&cli.manifest_path);
 
     let build_version =
-        semver::BuildMetadata::new(format!("k8sv{}", most_recent_k8s_version).as_str())
+        semver::Prerelease::new(format!("k8sv{}", most_recent_k8s_version).as_str())
             .expect("Cannot create new build metadata");
     let expected_policy_version = semver::Version {
-        build: build_version,
+        pre: build_version,
         ..current_policy_version.clone()
     };
 
