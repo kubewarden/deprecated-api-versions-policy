@@ -1,4 +1,4 @@
-# File taken from https://github.com/FairwindsOps/pluto
+# this is a test
 deprecated-versions:
   - version: extensions/v1beta1
     kind: Deployment
