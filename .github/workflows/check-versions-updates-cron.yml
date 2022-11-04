@@ -1,0 +1,19 @@
+name: Check for updates to versions.yaml file cron job
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Updatecli in the runner
+        uses: updatecli/updatecli-action@v2
+
+      - name: Run Updatecli in Apply mode
+        run: updatecli apply --config updatecli-manifest.yaml

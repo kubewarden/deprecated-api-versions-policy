@@ -1,0 +1,44 @@
+title: Update versions.yaml file
+
+scms:
+  pluto-git:
+    kind: git
+    spec:
+      url: https://github.com/FairwindsOps/pluto.git
+      branch: master
+
+  policy-git:
+    kind: github
+    spec:
+      owner: "kubewarden"
+      repository: "deprecated-api-versions-policy"
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      username: '{{ requiredEnv "GITHUB_ACTOR" }}'
+      branch: "main"
+
+pullrequests:
+  helm-charts:
+    kind: "github"
+    scmid: policy-git
+    spec:
+      description: "Update deprecation definitions"
+      draft: false
+      title: "Update versions.yaml file"
+
+sources:
+  upstreamVersions:
+    name: versions.yaml
+    kind: file
+    scmid: pluto-git
+    spec:
+      file: versions.yaml
+    transformers:
+      - addprefix: "# File taken from https://github.com/FairwindsOps/pluto\n"
+
+targets:
+  versionsYaml:
+    name: "versions.yaml"
+    kind: file
+    scmid: policy-git
+    spec:
+      file: versions.yaml
