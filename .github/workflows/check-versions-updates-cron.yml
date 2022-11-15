@@ -16,4 +16,7 @@ jobs:
         uses: updatecli/updatecli-action@v2
 
       - name: Run Updatecli in Apply mode
-        run: updatecli apply --config updatecli-manifest.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          updatecli apply --config updatecli-manifest.yaml
