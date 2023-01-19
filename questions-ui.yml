@@ -1,0 +1,32 @@
+questions:
+- default: null
+  description: >-
+    This policy detects usage of Kubernetes resources that have been deprecated
+    or removed. At deployment time, the operator must provide a Kubernetes
+    version to use when looking for deprecation/removal objects. This is done
+    via the kubernetes_version attribute.
+  group: Settings
+  label: Description
+  required: false
+  hide_input: true
+  type: string
+  variable: description
+- default: ''
+  tooltip: >-
+    The policy will detect all the Kubernetes resources that are deprecated or
+    removed starting from the Kubernetes version.
+  group: Settings
+  label: Kubernetes Version
+  required: false
+  type: string
+  variable: kubernetes_version
+- default: true
+  tooltip: >-
+    By default the policy will prevent the usage of Kubernetes resources that
+    are already deprecated, but not yet removed. This setting will change that
+    behavior.
+  group: Settings
+  label: Deny on Deprecation
+  required: false
+  type: boolean
+  variable: deny_on_deprecation
