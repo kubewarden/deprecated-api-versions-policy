@@ -28,7 +28,3 @@ jobs:
     with:
       input-wasm: deprecated_api_versions
       oci-target: ghcr.io/kubewarden/policies/deprecated-api-versions
-    
-    secrets:
-      workflow-pat: ${{ secrets.WORKFLOW_PAT }}
-    

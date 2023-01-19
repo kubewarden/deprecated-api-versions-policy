@@ -1,5 +1,5 @@
 ---
-version: "0.1.1-k8sv1.26.0"
+version: "0.1.2-k8sv1.26.0"
 name: deprecated-api-versions
 displayName: Deprecated API Versions
 createdAt: '2023-01-19T14:46:21+02:00'
@@ -8,13 +8,13 @@ license: Apache-2.0
 homeURL: https://kubewarden.io
 containersImages:
 - name: policy
-  image: "ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.1-k8sv1.26.0"
+  image: "ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.2-k8sv1.26.0"
 keywords:
 - compliance
 - deprecated API
 links:
 - name: policy
-  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.1-k8sv1.26.0/policy.wasm
+  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.2-k8sv1.26.0/policy.wasm
 - name: source
   url: https://github.com/kubewarden/deprecated-api-versions
 provider:
