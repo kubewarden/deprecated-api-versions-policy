@@ -61,13 +61,12 @@ impl fmt::Display for DeprecationRule {
         let mut msgs = vec![format!("{} {} cannot be used.", self.version, self.kind,)];
         if let Some(deprecated_in) = &self.deprecated_in {
             msgs.push(format!(
-                "It has been deprecated starting from {}.",
-                deprecated_in
+                "It has been deprecated starting from {deprecated_in}."
             ));
         }
 
         if let Some(removed_in) = &self.removed_in {
-            msgs.push(format!("It has been removed starting from {}.", removed_in));
+            msgs.push(format!("It has been removed starting from {removed_in}."));
         }
         msgs.push(format!("It has been replaced by {}.", self.replacement_api));
 
