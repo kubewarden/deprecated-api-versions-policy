@@ -17,7 +17,8 @@ questions:
     removed starting from the Kubernetes version.
   group: Settings
   label: Kubernetes Version
-  required: false
+  placeholder: '1.24.2'
+  required: true
   type: string
   variable: kubernetes_version
 - default: true
