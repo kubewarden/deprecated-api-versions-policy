@@ -1,32 +1,77 @@
----
-version: "0.1.5-k8sv1.27.0"
+# Kubewarden Artifacthub Package config
+#
+# Use this config to submit the policy to https://artifacthub.io.
+#
+# This config can be saved to its default location with:
+#   kwctl scaffold artifacthub > artifacthub-pkg.yml 
+version: 0.1.6-k8sv1.27.0
 name: deprecated-api-versions
 displayName: Deprecated API Versions
-createdAt: '2023-02-22T16:22:34+00:00'
+createdAt: 2023-03-21T12:36:57.518762829Z
 description: Find deprecated and removed Kubernetes resources
 license: Apache-2.0
-homeURL: https://kubewarden.io
+homeURL: https://github.com/kubewarden/deprecated-api-versions
 containersImages:
 - name: policy
-  image: "ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.5-k8sv1.27.0"
+  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.6-k8sv1.27.0
 keywords:
 - compliance
 - deprecated API
 links:
 - name: policy
-  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.5-k8sv1.27.0/policy.wasm
+  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.6-k8sv1.27.0/policy.wasm
 - name: source
   url: https://github.com/kubewarden/deprecated-api-versions
+install: |
+  The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
+  ```console
+  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.6-k8sv1.27.0
+  ```
+maintainers:
+- name: Kubewarden developers
+  email: cncf-kubewarden-maintainers@lists.cncf.io
 provider:
   name: kubewarden
 recommendations:
 - url: https://artifacthub.io/packages/helm/kubewarden/kubewarden-controller
 annotations:
-  kubewarden/resources: "*"
-  kubewarden/mutation: false
-  kubewarden/contextAware: false
+  kubewarden/mutation: 'false'
+  kubewarden/questions-ui: |
+    questions:
+    - default: null
+      description: >-
+        This policy detects usage of Kubernetes resources that have been deprecated
+        or removed. At deployment time, the operator must provide a Kubernetes
+        version to use when looking for deprecation/removal objects. This is done
+        via the kubernetes_version attribute.
+      group: Settings
+      label: Description
+      required: false
+      hide_input: true
+      type: string
+      variable: description
+    - default: ''
+      tooltip: >-
+        The policy will detect all the Kubernetes resources that are deprecated or
+        removed starting from the Kubernetes version.
+      group: Settings
+      label: Kubernetes Version
+      placeholder: '1.24.2'
+      required: true
+      type: string
+      variable: kubernetes_version
+    - default: true
+      tooltip: >-
+        By default the policy will prevent the usage of Kubernetes resources that
+        are already deprecated, but not yet removed. This setting will change that
+        behavior.
+      group: Settings
+      label: Deny on Deprecation
+      required: false
+      type: boolean
+      variable: deny_on_deprecation
+  kubewarden/resources: '*'
   kubewarden/rules: |
-    rules:
     - apiGroups:
       - admissionregistration.k8s.io
       apiVersions:
@@ -175,38 +220,3 @@ annotations:
       - '*'
       operations:
       - CREATE
-  kubewarden/questions-ui: |
-    questions:
-    - default: null
-      description: >-
-        This policy detects usage of Kubernetes resources that have been deprecated
-        or removed. At deployment time, the operator must provide a Kubernetes
-        version to use when looking for deprecation/removal objects. This is done
-        via the kubernetes_version attribute.
-      group: Settings
-      label: Description
-      required: false
-      hide_input: true
-      type: string
-      variable: description
-    - default: ''
-      tooltip: >-
-        The policy will detect all the Kubernetes resources that are deprecated or
-        removed starting from the Kubernetes version.
-      group: Settings
-      label: Kubernetes Version
-      placeholder: '1.24.2'
-      required: true
-      type: string
-      variable: kubernetes_version
-    - default: true
-      tooltip: >-
-        By default the policy will prevent the usage of Kubernetes resources that
-        are already deprecated, but not yet removed. This setting will change that
-        behavior.
-      group: Settings
-      label: Deny on Deprecation
-      required: false
-      type: boolean
-      variable: deny_on_deprecation
-      
