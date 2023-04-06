@@ -114,6 +114,14 @@ rules:
   operations:
   - CREATE
 - apiGroups:
+  - node.k8s.io
+  apiVersions:
+  - v1beta1
+  resources:
+  - '*'
+  operations:
+  - CREATE
+- apiGroups:
   - policy
   apiVersions:
   - v1beta1
