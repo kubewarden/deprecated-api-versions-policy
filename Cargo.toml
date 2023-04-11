@@ -1,8 +1,8 @@
 [package]
 name = "deprecated-api-versions"
-version = "0.1.6-k8sv1.27.0"
+version = "0.1.7-k8sv1.27.0"
 authors = ["Flavio Castelli <fcastelli@suse.com>"]
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
