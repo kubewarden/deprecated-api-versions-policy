@@ -101,6 +101,7 @@ rules:
   - flowcontrol.apiserver.k8s.io
   apiVersions:
   - v1beta1
+  - v1beta2
   resources:
   - '*'
   operations:
