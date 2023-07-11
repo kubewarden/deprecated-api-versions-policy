@@ -4,28 +4,28 @@
 #
 # This config can be saved to its default location with:
 #   kwctl scaffold artifacthub > artifacthub-pkg.yml 
-version: 0.1.9-k8sv1.29.0
+version: 0.1.10-k8sv1.29.0
 name: deprecated-api-versions
 displayName: Deprecated API Versions
-createdAt: 2023-06-28T07:49:24.424186039Z
+createdAt: 2023-07-10T16:27:53.95192879Z
 description: Find deprecated and removed Kubernetes resources
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/deprecated-api-versions
 containersImages:
 - name: policy
-  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.9-k8sv1.29.0
+  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.10-k8sv1.29.0
 keywords:
 - compliance
 - deprecated API
 links:
 - name: policy
-  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.9-k8sv1.29.0/policy.wasm
+  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.10-k8sv1.29.0/policy.wasm
 - name: source
   url: https://github.com/kubewarden/deprecated-api-versions
 install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
-  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.9-k8sv1.29.0
+  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.10-k8sv1.29.0
   ```
 maintainers:
 - name: Kubewarden developers
