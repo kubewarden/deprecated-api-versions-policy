@@ -7,10 +7,10 @@
 version: 0.1.10-k8sv1.29.0
 name: deprecated-api-versions
 displayName: Deprecated API Versions
-createdAt: 2023-07-10T16:27:53.95192879Z
+createdAt: 2023-07-14T15:15:39.337441641Z
 description: Find deprecated and removed Kubernetes resources
 license: Apache-2.0
-homeURL: https://github.com/kubewarden/deprecated-api-versions
+homeURL: https://github.com/kubewarden/deprecated-api-versions-policy
 containersImages:
 - name: policy
   image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.10-k8sv1.29.0
@@ -19,9 +19,9 @@ keywords:
 - deprecated API
 links:
 - name: policy
-  url: https://github.com/kubewarden/deprecated-api-versions/releases/download/v0.1.10-k8sv1.29.0/policy.wasm
+  url: https://github.com/kubewarden/deprecated-api-versions-policy/releases/download/v0.1.10-k8sv1.29.0/policy.wasm
 - name: source
-  url: https://github.com/kubewarden/deprecated-api-versions
+  url: https://github.com/kubewarden/deprecated-api-versions-policy
 install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
