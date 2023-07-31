@@ -11,7 +11,7 @@ jobs:
 
   test:
     name: run tests and linters
-    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@v3.1.4
+    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@v3.1.5
 
   release:
     needs: test
@@ -23,6 +23,6 @@ jobs:
       # Required by cosign keyless signing
       id-token: write
 
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v3.1.4
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v3.1.5
     with:
       oci-target: ghcr.io/${{ github.repository_owner }}/policies/deprecated-api-versions
