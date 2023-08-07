@@ -283,9 +283,9 @@ checksum = "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
 
 [[package]]
 name = "kubewarden-policy-sdk"
-version = "0.9.5"
+version = "0.9.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2b5f89a2e97652ca998205c3aaffbdfcf35feadc37580e06fb77fd7ca5abfbc"
+checksum = "845b954c96cafeeb0ead2c558a0d1d961a514552740e660fb16a0750d7fc9497"
 dependencies = [
  "anyhow",
  "cfg-if",
