@@ -9,7 +9,7 @@ artifacthub-pkg.yml: metadata.yml Cargo.toml
 	kwctl scaffold artifacthub --metadata-path metadata.yml --version $(VERSION) \
 		--questions-path questions-ui.yml --output artifacthub-pkg.yml
 
-annotated-policy.wasm: policy.wasm metadata.yml artifacthub-pkg.yml
+annotated-policy.wasm: policy.wasm metadata.yml
 	kwctl annotate -m metadata.yml -u README.md -o annotated-policy.wasm policy.wasm
 
 .PHONY: fmt
