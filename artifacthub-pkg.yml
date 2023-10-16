@@ -7,7 +7,7 @@
 version: 0.1.11-k8sv1.29.0
 name: deprecated-api-versions
 displayName: Deprecated API Versions
-createdAt: 2023-07-17T13:51:08.327238576Z
+createdAt: 2023-10-16T08:47:52.734557198Z
 description: Find deprecated and removed Kubernetes resources
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/deprecated-api-versions-policy
@@ -26,6 +26,10 @@ install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
   kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.11-k8sv1.29.0
+  ```
+  Then, generate the policy manifest and tune it to your liking. For example:
+  ```console
+  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.11-k8sv1.29.0
   ```
 maintainers:
 - name: Kubewarden developers
