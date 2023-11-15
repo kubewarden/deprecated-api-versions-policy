@@ -5,8 +5,11 @@
     --request-path test_data/ingress_creation.json \
     --settings-json '{ "kubernetes_version" : "1.19.0", "deny_on_deprecation_default": true }' \
     annotated-policy.wasm
+
+  # this prints the output when one the checks below fails
+  echo "output = ${output}"
+
   [ "$status" -eq 0 ]
-  echo "$output"
   [ $(expr "$output" : '.*"allowed":false.*') -ne 0 ]
 }
 
@@ -15,8 +18,11 @@
     --request-path test_data/ingress_creation.json \
     --settings-json '{ "kubernetes_version" : "1.19.0" }' \
     annotated-policy.wasm
+
+  # this prints the output when one the checks below fails
+  echo "output = ${output}"
+
   [ "$status" -eq 0 ]
-  echo "$output"
   [ $(expr "$output" : '.*"allowed":false.*') -ne 0 ]
 }
 
@@ -25,8 +31,11 @@
     --request-path test_data/ingress_creation.json \
     --settings-json '{ "kubernetes_version" : "1.19.0", "deny_on_deprecation": false }' \
     annotated-policy.wasm
+
+  # this prints the output when one the checks below fails
+  echo "output = ${output}"
+
   [ "$status" -eq 0 ]
-  echo "$output"
   [ $(expr "$output" : '.*"allowed":true.*') -ne 0 ]
 }
 
@@ -35,8 +44,11 @@
     --request-path test_data/ingress_creation.json \
     --settings-json '{ "kubernetes_version" : "1.25.0" }' \
     annotated-policy.wasm
+
+  # this prints the output when one the checks below fails
+  echo "output = ${output}"
+
   [ "$status" -eq 0 ]
-  echo "$output"
   [ $(expr "$output" : '.*"allowed":false.*') -ne 0 ]
 }
 
@@ -45,8 +57,11 @@
     --request-path test_data/ingress_creation.json \
     --settings-json '{ "kubernetes_version" : "1.10.0" }' \
     annotated-policy.wasm
+
+  # this prints the output when one the checks below fails
+  echo "output = ${output}"
+
   [ "$status" -eq 0 ]
-  echo "$output"
   [ $(expr "$output" : '.*"allowed":true.*') -ne 0 ]
 }
 
