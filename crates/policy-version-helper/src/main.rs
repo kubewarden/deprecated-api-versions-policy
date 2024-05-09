@@ -17,12 +17,12 @@ fn find_most_recent_k8s_version_mentioned_by_versions_yaml() -> String {
         }
         if let Some(deprecated_in) = &rule.deprecated_in {
             if deprecated_in > &most_recent_k8s_version {
-                most_recent_k8s_version = deprecated_in.to_owned();
+                deprecated_in.clone_into(&mut most_recent_k8s_version);
             }
         }
         if let Some(removed_in) = &rule.removed_in {
             if removed_in > &most_recent_k8s_version {
-                most_recent_k8s_version = removed_in.to_owned();
+                removed_in.clone_into(&mut most_recent_k8s_version);
             }
         }
     }
