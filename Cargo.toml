@@ -1,6 +1,6 @@
 [package]
 name = "deprecated-api-versions"
-version = "0.1.12-k8sv1.29.0"
+version = "0.1.13-k8sv1.30.0"
 authors = ["Flavio Castelli <fcastelli@suse.com>"]
 edition = "2021"
 
