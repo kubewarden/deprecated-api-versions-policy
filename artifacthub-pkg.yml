@@ -4,32 +4,32 @@
 #
 # This config can be saved to its default location with:
 #   kwctl scaffold artifacthub > artifacthub-pkg.yml 
-version: 0.1.12-k8sv1.29.0
+version: 0.1.13-k8sv1.30.0
 name: deprecated-api-versions
 displayName: Deprecated API Versions
-createdAt: 2023-12-19T10:47:34.775523708Z
+createdAt: 2024-07-03T15:00:40.483049707Z
 description: Find deprecated and removed Kubernetes resources
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/deprecated-api-versions-policy
 containersImages:
 - name: policy
-  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.12-k8sv1.29.0
+  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.30.0
 keywords:
 - compliance
 - deprecated API
 links:
 - name: policy
-  url: https://github.com/kubewarden/deprecated-api-versions-policy/releases/download/v0.1.12-k8sv1.29.0/policy.wasm
+  url: https://github.com/kubewarden/deprecated-api-versions-policy/releases/download/v0.1.13-k8sv1.30.0/policy.wasm
 - name: source
   url: https://github.com/kubewarden/deprecated-api-versions-policy
 install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
-  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.12-k8sv1.29.0
+  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.30.0
   ```
   Then, generate the policy manifest and tune it to your liking. For example:
   ```console
-  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.12-k8sv1.29.0
+  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.30.0
   ```
 maintainers:
 - name: Kubewarden developers
