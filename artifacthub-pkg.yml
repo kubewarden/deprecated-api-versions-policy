@@ -1,0 +1,235 @@
+# Kubewarden Artifacthub Package config
+#
+# Use this config to submit the policy to https://artifacthub.io.
+#
+# This config can be saved to its default location with:
+#   kwctl scaffold artifacthub > artifacthub-pkg.yml 
+version: 0.1.13-k8sv1.31.0
+name: deprecated-api-versions
+displayName: Deprecated API Versions
+createdAt: 2024-10-30T10:37:51.316926843Z
+description: Find deprecated and removed Kubernetes resources
+license: Apache-2.0
+homeURL: https://github.com/kubewarden/deprecated-api-versions-policy
+containersImages:
+- name: policy
+  image: ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.31.0
+keywords:
+- compliance
+- deprecated API
+links:
+- name: policy
+  url: https://github.com/kubewarden/deprecated-api-versions-policy/releases/download/v0.1.13-k8sv1.31.0/policy.wasm
+- name: source
+  url: https://github.com/kubewarden/deprecated-api-versions-policy
+install: |
+  The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
+  ```console
+  kwctl pull ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.31.0
+  ```
+  Then, generate the policy manifest and tune it to your liking. For example:
+  ```console
+  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/kubewarden/policies/deprecated-api-versions:v0.1.13-k8sv1.31.0
+  ```
+maintainers:
+- name: Kubewarden developers
+  email: cncf-kubewarden-maintainers@lists.cncf.io
+provider:
+  name: kubewarden
+recommendations:
+- url: https://artifacthub.io/packages/helm/kubewarden/kubewarden-controller
+annotations:
+  kubewarden/mutation: 'false'
+  kubewarden/questions-ui: |
+    questions:
+    - default: null
+      description: >-
+        This policy detects usage of Kubernetes resources that have been deprecated
+        or removed. At deployment time, the operator must provide a Kubernetes
+        version to use when looking for deprecation/removal objects. This is done
+        via the kubernetes_version attribute.
+      group: Settings
+      label: Description
+      required: false
+      hide_input: true
+      type: string
+      variable: description
+    - default: ''
+      tooltip: >-
+        The policy will detect all the Kubernetes resources that are deprecated or
+        removed starting from the Kubernetes version.
+      group: Settings
+      label: Kubernetes Version
+      placeholder: '1.24.2'
+      required: true
+      type: string
+      variable: kubernetes_version
+    - default: true
+      tooltip: >-
+        By default the policy will prevent the usage of Kubernetes resources that
+        are already deprecated, but not yet removed. This setting will change that
+        behavior.
+      group: Settings
+      label: Deny on Deprecation
+      required: false
+      type: boolean
+      variable: deny_on_deprecation
+  kubewarden/resources: '*'
+  kubewarden/rules: |
+    - apiGroups:
+      - admissionregistration.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - apiextensions.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - apiregistration.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - apps
+      apiVersions:
+      - v1beta1
+      - v1beta2
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - authentication.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - autoscaling
+      apiVersions:
+      - v2beta1
+      - v2beta2
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - batch
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - certificates.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - coordination.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - discovery.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - events.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - extensions
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - flowcontrol.apiserver.k8s.io
+      apiVersions:
+      - v1beta1
+      - v1beta2
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - networking.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - node.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - policy
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      apiVersions:
+      - v1alpha1
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - scheduling.k8s.io
+      apiVersions:
+      - v1alpha1
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
+    - apiGroups:
+      - storage.k8s.io
+      apiVersions:
+      - v1beta1
+      resources:
+      - '*'
+      operations:
+      - CREATE
