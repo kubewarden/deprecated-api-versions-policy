@@ -186,7 +186,7 @@ dependencies = [
 
 [[package]]
 name = "deprecated-api-versions"
-version = "0.1.14-k8sv1.32.0"
+version = "0.1.15-k8sv1.32.0"
 dependencies = [
  "anyhow",
  "kubewarden-policy-sdk",
