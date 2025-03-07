@@ -1,10 +1,13 @@
 {
   "extends": [
-    "config:recommended",
-    "group:allNonMajor",
-    "schedule:earlyMondays"
+    "github>kubewarden/github-actions//renovate-config/policies"
   ],
-  "labels": [
-    "dependencies"
+  "packageRules": [
+    {
+      "description": "Update GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "groupSlug": "github-actions"
+    }
   ]
 }
