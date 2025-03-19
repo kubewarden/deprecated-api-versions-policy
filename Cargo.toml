@@ -1,17 +1,13 @@
 [package]
 name = "deprecated-api-versions"
-version = "0.1.15-k8sv1.32.0"
+version = "0.2.0"
 authors = ["Flavio Castelli <fcastelli@suse.com>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [workspace]
-members = [
-  "crates/versions",
-  "crates/policy-metadata-helper",
-  "crates/policy-version-helper",
-]
+members = ["crates/versions", "crates/policy-metadata-helper"]
 
 [lib]
 crate-type = ["cdylib"]
