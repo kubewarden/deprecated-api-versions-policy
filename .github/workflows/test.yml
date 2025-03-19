@@ -6,8 +6,9 @@ jobs:
     uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@36f0782e949d8597c061ca0d519f7e17a2813190 # v3.4.8
 
   check-metadata:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - id: check-policy-metadata
         shell: bash
         run: |
