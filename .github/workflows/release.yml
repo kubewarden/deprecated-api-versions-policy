@@ -24,7 +24,7 @@ jobs:
   release:
     needs:
       - test
-      - check-metadata
+      - check-policy-metadata
     permissions:
       # Required to create GH releases
       contents: write
