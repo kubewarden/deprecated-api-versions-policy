@@ -21,6 +21,12 @@ kubernetes_version: "1.24.2"
 The policy will detect all the Kubernetes resources that are deprecated or removed
 starting from the Kubernetes version `1.24.2`.
 
+## Keeping up with Kubernetes deprecations
+
+Kubernetes deprecation evolve over the time. As soon as new deprecations are
+added this policy will be updated.
+
+Currently, this policy is aware of deprecations introduced up to the Kubernetes **1.32.0** release.
 
 ## Deprecated but not yet removed resources
 
@@ -51,20 +57,3 @@ On the other hand, it would be blocked with this configuration:
 kubernetes_version: "1.19.0"
 deny_on_deprecation: true # note: this is set to true by default
 ```
-
-## Keeping up with Kubernetes deprecations
-
-Kubernetes deprecation evolve over the time. As soon as new deprecations are
-added this policy will be updated.
-
-The versioning scheme of this policy follows this pattern:
-
-```
-<policy version>-k8sv<most recent version of kubernes known by the embedded deprecation rules>
-```
-
-For example, the release `0.1.0-k8sv1.26.0` of this policy knows about all the deprecation rules
-formulated up to Kubernetes release 1.26.0.
-
-The announcement of new deprecation rules for Kubernetes 1.27.0 would trigger
-then a release of this policy with the following version: `v0.1.1-k8sv1.27.0`.
