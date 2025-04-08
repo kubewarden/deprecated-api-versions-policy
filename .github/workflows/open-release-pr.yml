@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 3 12 * *" # At 03:30 on day-of-month 12
+
+name: Open release PR
+
+jobs:
+  test:
+    name: open-release-pr
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-pr.yml@v4.4.0
+    secrets:
+      APP_ID: ${{ secrets.APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
