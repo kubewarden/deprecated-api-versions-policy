@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+    inputs:
+      trigger_release:
+        description: "Tag and trigger release manually"
+        required: false
+        default: true
+
+name: Tag and Release on PR Merge
+
+jobs:
+  test:
+    name: release-tag
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-tag.yml@v4.4.0
