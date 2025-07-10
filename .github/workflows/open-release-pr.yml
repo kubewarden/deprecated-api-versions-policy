@@ -8,7 +8,7 @@ name: Open release PR
 jobs:
   test:
     name: open-release-pr
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-pr.yml@7195340a122321bf547fda2ffc07eed6f6ae43f6 # v4.5.1
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-pr.yml@e4235d64971f43e9acdfed25797f9930fb85ca83 # v4.5.2
     secrets:
       APP_ID: ${{ secrets.APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
