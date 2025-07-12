@@ -197,7 +197,7 @@ dependencies = [
 
 [[package]]
 name = "deprecated-api-versions"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "anyhow",
  "kubewarden-policy-sdk",
@@ -630,7 +630,7 @@ checksum = "e3148f5046208a5d56bcfc03053e3ca6334e51da8dfb19b6cdc8b306fae3283e"
 
 [[package]]
 name = "policy-metadata-helper"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "clap",
  "serde",
@@ -933,7 +933,7 @@ checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
 
 [[package]]
 name = "versions"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "anyhow",
  "kubewarden-policy-sdk",
