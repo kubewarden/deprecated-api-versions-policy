@@ -297,6 +297,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
 
 [[package]]
+name = "hex"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
+
+[[package]]
 name = "icu_collections"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -433,13 +439,14 @@ checksum = "4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c"
 
 [[package]]
 name = "kubewarden-policy-sdk"
-version = "0.14.3"
+version = "0.14.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c649f3e88af2235f54d08b223f64ba831977f3cd2b6aae7b6b059cbfc1c9133"
+checksum = "fc5683fc03c0770f0df96711b236b4a53cecbacd5415e2edc7b6602935a3aa8f"
 dependencies = [
  "anyhow",
  "cfg-if",
  "chrono",
+ "hex",
  "num",
  "num-derive",
  "num-traits",
