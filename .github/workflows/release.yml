@@ -11,7 +11,7 @@ name: Release policy
 jobs:
   test:
     name: run tests and linters
-    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@8fdccfcf973dfe199cb2f4b2a6809898aa721559 # v4.5.6
+    uses: kubewarden/github-actions/.github/workflows/reusable-test-policy-rust.yml@5e22c63afd22d04a802a7a0463f66ffda6c3c71a # v4.5.7
 
   check-policy-metadata:
     runs-on: ubuntu-latest
@@ -33,13 +33,13 @@ jobs:
       packages: write
       # Required by cosign keyless signing
       id-token: write
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@8fdccfcf973dfe199cb2f4b2a6809898aa721559 # v4.5.6
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@5e22c63afd22d04a802a7a0463f66ffda6c3c71a # v4.5.7
     with:
       oci-target: ghcr.io/${{ github.repository_owner }}/policies/deprecated-api-versions
 
   release-catalog:
     needs: release
-    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-catalog.yml@8fdccfcf973dfe199cb2f4b2a6809898aa721559 # v4.5.6
+    uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-catalog.yml@5e22c63afd22d04a802a7a0463f66ffda6c3c71a # v4.5.7
     secrets:
       # Required to dispatch the release event to the policy-catalog repository
       APP_ID: ${{ secrets.APP_ID }}
