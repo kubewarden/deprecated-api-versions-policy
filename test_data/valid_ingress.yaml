@@ -1,0 +1,12 @@
+# This resource uses the stable API version (networking.k8s.io/v1)
+# The policy should ALLOW this request
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: valid-ingress
+spec:
+  defaultBackend:
+    service:
+      name: test
+      port:
+        number: 80

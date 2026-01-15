@@ -1,0 +1,10 @@
+# This resource uses a deprecated API version (extensions/v1beta1)
+# The policy should BLOCK this request if your cluster version is > 1.14
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: deprecated-ingress
+spec:
+  backend:
+    serviceName: test
+    servicePort: 80
